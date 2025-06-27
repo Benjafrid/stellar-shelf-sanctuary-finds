@@ -1,5 +1,5 @@
 
-import { Search, Filter, Grid, List, BookmarkCheck, ShoppingCart } from 'lucide-react';
+import { Search, Filter, Grid, List, BookmarkCheck, ShoppingCart, Book } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -36,9 +36,10 @@ export const Header = ({
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-4">
-            <Link to="/">
+            <Link to="/" className="flex items-center gap-2">
+              <Book className="h-8 w-8 text-book-coffee" />
               <h1 className="text-3xl font-bold text-book-coffee font-playfair hover:text-book-burgundy transition-colors cursor-pointer">
-                Bibliotheca
+                ARS
               </h1>
             </Link>
             <span className="text-sm text-muted-foreground hidden sm:block">
@@ -47,23 +48,24 @@ export const Header = ({
           </div>
           
           <div className="flex items-center space-x-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={onShowFavorites}
-              className="relative"
-            >
-              <BookmarkCheck className="h-4 w-4" />
-              <span className="hidden sm:inline ml-2">Favoritos</span>
-              {favoritesCount > 0 && (
-                <Badge 
-                  variant="destructive" 
-                  className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs"
-                >
-                  {favoritesCount}
-                </Badge>
-              )}
-            </Button>
+            <Link to="/favorites">
+              <Button
+                variant="outline"
+                size="sm"
+                className="relative"
+              >
+                <BookmarkCheck className="h-4 w-4" />
+                <span className="hidden sm:inline ml-2">Favoritos</span>
+                {favoritesCount > 0 && (
+                  <Badge 
+                    variant="destructive" 
+                    className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs"
+                  >
+                    {favoritesCount}
+                  </Badge>
+                )}
+              </Button>
+            </Link>
             
             <Link to="/cart">
               <Button
