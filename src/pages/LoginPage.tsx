@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,23 +10,24 @@ import { Book } from 'lucide-react';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Por ahora solo simulamos el login y redirigimos
     console.log('Login attempt:', { email, password });
-    window.location.href = '/';
+    // Simular login exitoso y redirigir al catálogo
+    navigate('/catalog');
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center p-4">
+      <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Book className="h-8 w-8 text-book-coffee" />
-            <h1 className="text-2xl font-bold text-book-coffee font-playfair">ARS</h1>
+            <Book className="h-8 w-8 text-amber-700" />
+            <h1 className="text-2xl font-bold text-amber-700 font-serif">ARS</h1>
           </div>
-          <CardTitle className="text-xl font-playfair">Iniciar Sesión</CardTitle>
+          <CardTitle className="text-xl font-serif">Iniciar Sesión</CardTitle>
           <CardDescription>
             Ingresa a tu cuenta para continuar
           </CardDescription>
@@ -42,7 +43,7 @@ const LoginPage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="bg-book-cream border-book-gold/20 focus:border-book-gold"
+                className="bg-amber-50 border-amber-200 focus:border-amber-400"
               />
             </div>
             <div className="space-y-2">
@@ -54,20 +55,20 @@ const LoginPage = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="bg-book-cream border-book-gold/20 focus:border-book-gold"
+                className="bg-amber-50 border-amber-200 focus:border-amber-400"
               />
             </div>
             <Button 
               type="submit" 
-              className="w-full bg-book-coffee hover:bg-book-burgundy"
+              className="w-full bg-amber-700 hover:bg-amber-800 text-white"
             >
               Iniciar Sesión
             </Button>
           </form>
           <div className="mt-4 text-center">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-gray-600">
               ¿No tienes cuenta?{' '}
-              <Link to="/register" className="text-book-coffee hover:text-book-burgundy underline">
+              <Link to="/register" className="text-amber-700 hover:text-amber-800 underline">
                 Regístrate aquí
               </Link>
             </p>

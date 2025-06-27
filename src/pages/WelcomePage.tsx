@@ -16,19 +16,19 @@ const WelcomePage = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
-      <div className="text-center animate-fade-in">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center">
+      <div className="text-center">
         <div className="flex items-center justify-center gap-3 mb-6">
-          <Book className="h-16 w-16 text-book-coffee animate-scale-in" />
-          <h1 className="text-6xl font-bold text-book-coffee font-playfair">
+          <Book className="h-16 w-16 text-amber-700 animate-pulse" />
+          <h1 className="text-6xl font-bold text-amber-700 font-serif">
             ARS
           </h1>
         </div>
-        <p className="text-xl text-book-coffee/70 mb-4">
+        <p className="text-xl text-amber-600 mb-4">
           Bienvenido a tu librería virtual
         </p>
         <div className="animate-pulse">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-gray-500">
             Redirigiendo...
           </p>
         </div>
