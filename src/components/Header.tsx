@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ViewMode } from '../types/book';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   searchTerm: string;
@@ -35,9 +36,11 @@ export const Header = ({
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-4">
-            <h1 className="text-3xl font-bold text-book-coffee font-playfair">
-              Bibliotheca
-            </h1>
+            <Link to="/">
+              <h1 className="text-3xl font-bold text-book-coffee font-playfair hover:text-book-burgundy transition-colors cursor-pointer">
+                Bibliotheca
+              </h1>
+            </Link>
             <span className="text-sm text-muted-foreground hidden sm:block">
               Tu librería virtual de confianza
             </span>
@@ -62,23 +65,24 @@ export const Header = ({
               )}
             </Button>
             
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={onShowCart}
-              className="relative"
-            >
-              <ShoppingCart className="h-4 w-4" />
-              <span className="hidden sm:inline ml-2">Carrito</span>
-              {cartItemsCount > 0 && (
-                <Badge 
-                  variant="destructive" 
-                  className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs"
-                >
-                  {cartItemsCount}
-                </Badge>
-              )}
-            </Button>
+            <Link to="/cart">
+              <Button
+                variant="outline"
+                size="sm"
+                className="relative"
+              >
+                <ShoppingCart className="h-4 w-4" />
+                <span className="hidden sm:inline ml-2">Carrito</span>
+                {cartItemsCount > 0 && (
+                  <Badge 
+                    variant="destructive" 
+                    className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs"
+                  >
+                    {cartItemsCount}
+                  </Badge>
+                )}
+              </Button>
+            </Link>
           </div>
         </div>
         

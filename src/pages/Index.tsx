@@ -82,7 +82,7 @@ const Index = () => {
         favoritesCount={favorites.length}
         cartItemsCount={getTotalItems()}
         onShowFavorites={() => console.log('Mostrar favoritos')}
-        onShowCart={() => console.log('Mostrar carrito')}
+        onShowCart={() => {}} // Esta función ya no se usa porque navegamos directamente
       />
 
       <div className="container mx-auto px-4 py-6">
