@@ -1,5 +1,5 @@
 
-import { Search, Filter, Grid, List, BookmarkCheck, ShoppingCart, Star } from 'lucide-react';
+import { Search, Filter, Grid, List, BookmarkCheck, ShoppingCart, Book } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -37,7 +37,7 @@ export const Header = ({
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-4">
             <Link to="/" className="flex items-center gap-2">
-              <Star className="h-8 w-8 text-book-coffee" />
+              <Book className="h-8 w-8 text-book-coffee" />
               <h1 className="text-3xl font-bold text-book-coffee font-playfair hover:text-book-burgundy transition-colors cursor-pointer">
                 ARS
               </h1>
